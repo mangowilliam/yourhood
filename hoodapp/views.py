@@ -63,3 +63,13 @@ def add_profile(request):
     else:
         form = profileForm()
     return render(request, 'profile/profile-up.html', {"form": form})
+@login_required(login_url='/accounts/login/')
+def user_update(request):
+    if request.method == 'POST':
+        form = userForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = userserForm(instance=request.user)
+    return render(request, "profile/user-up.html", {"form": form})
