@@ -8,10 +8,10 @@
 </head>
 
 
-<body>
+<body style="color:#ffffff">
 
 
-  <nav class="navbar navbar-default" role='navigation' style="background-color: #fff;">
+  <nav class="navbar navbar-default" role='navigation' style="background-color:#6a1b9a;" >
 
     <div class='container'>
       <div class="navbar-header">
@@ -22,7 +22,7 @@
             <span class=icon-bar></span>
           </button>
 
-          <a <span class="navbar-brand btn" href="{%url 'hood'%}">HOOD</span></a>
+          <a <span class="btn btn-info" href="{%url 'hood'%}">HOOD</span></a>
       </div>
       
       <div class='navbar-collapse collapse '>
@@ -32,7 +32,7 @@
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search projects" name="projects">
               <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                <button class="btn btn-info" type="submit"><i class="glyphicon glyphicon-search"></i></button>
               </div>
             </div>
 
@@ -40,7 +40,7 @@
          
         </div>
         <div class="col-sm-6 col-md-6">
-          {% if user.is_authenticated %}
+       
             <ul style="list-style: none;">
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle btn navbar-brand btn" data-toggle="dropdown" role="button" aria-expanded="false">Exit
@@ -48,28 +48,27 @@
                       </a>
                 <ul class="dropdown-menu" role="menu" class="navbar-brand btn">
                   <li>
-                    <a class="navbar-brand btn" href="/accounts/password/change">Change Password</a>
+                    <a class="btn btn-info" href="/accounts/password/change">Change Password</a>
                   </li>
                   <li>
-                    <a class="navbar-brand btn" href="/logout">Logout</a>
+                    <a class="btn btn-info"href="/logout">Logout</a>
                   </li>
                 </ul>
               </li>
             </ul>
-            {% else %}
+            
             <li style="list-style: none;">
-              <a class="navbar-brand btn" href="/accounts/login">Login</a> &nbsp;&nbsp;
-              <a class="navbar-brand btn" href="{%url 'signup'%}">Sign up</a>
+              <a class="btn btn-info" href="/accounts/login">Login</a> &nbsp;&nbsp;
+              <a class="btn btn-info" href="{%url 'signup'%}">Sign up</a>
             </li>
-            {% endif %}
+          
           </div>
 
         <ul class="navbar-right">
           <li style="list-style: none;">
             <img href=""class="gallery-image" alt=""  width=30 height=30 src=''>
-            <a class="nav-link btn navbar-brand btn" href=""><i class="fa fa-fw fa-user"></i></<a>
-            <a class="navbar-brand btn" href="">Add Projects</a>
-            <a class="navbar-brand btn" href="">create profile</a>
+            <a class="btn btn-info" href="">Add Projects</a>
+            <a class="btn btn-info" href="">create profile</a>
           </li>
           
         </ul>

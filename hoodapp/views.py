@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from . forms import UserRegistrationForm
 
 # Create your views here.
 def hood(request):
-    render(request, "hood.html")
+    return render(request, "hood.html")
+    
 def register(request):
     if request.method == "POST":
         form = UserRegistrationForm(request.POST)

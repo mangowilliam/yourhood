@@ -7,3 +7,4 @@ from django.conf.urls.static import static
 urlpatterns = [
     url('^$', views.hood,name='hood'),
     url(r'register',views.register,name= 'signup'),
+]
