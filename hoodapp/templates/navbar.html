@@ -40,10 +40,10 @@
          
         </div>
         <div class="col-sm-6 col-md-6">
-       
+          {% if user.is_authenticated %}
             <ul style="list-style: none;">
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle btn navbar-brand btn" data-toggle="dropdown" role="button" aria-expanded="false">Exit
+                <a href="#" class="dropdown-toggle btn btn-info btn" data-toggle="dropdown" role="button" aria-expanded="false">Exit
                           <span class="caret"></span>
                       </a>
                 <ul class="dropdown-menu" role="menu" class="navbar-brand btn">
@@ -56,12 +56,12 @@
                 </ul>
               </li>
             </ul>
-            
+            {% else %}
             <li style="list-style: none;">
               <a class="btn btn-info" href="/accounts/login">Login</a> &nbsp;&nbsp;
               <a class="btn btn-info" href="{%url 'signup'%}">Sign up</a>
             </li>
-          
+            {% endif %}
           </div>
 
         <ul class="navbar-right">
