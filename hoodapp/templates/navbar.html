@@ -42,19 +42,11 @@
         <div class="col-sm-6 col-md-6">
           {% if user.is_authenticated %}
             <ul style="list-style: none;">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle btn btn-info btn" data-toggle="dropdown" role="button" aria-expanded="false">Exit
-                          <span class="caret"></span>
-                      </a>
-                <ul class="dropdown-menu" role="menu" class="navbar-brand btn">
                   <li>
                     <a class="btn btn-info" href="/accounts/password/change">Change Password</a>
-                  </li>
-                  <li>
                     <a class="btn btn-info"href="/logout">Logout</a>
                   </li>
-                </ul>
-              </li>
+            
             </ul>
             {% else %}
             <li style="list-style: none;">
@@ -67,8 +59,10 @@
         <ul class="navbar-right">
           <li style="list-style: none;">
             <img href=""class="gallery-image" alt=""  width=30 height=30 src=''>
-            <a class="btn btn-info" href="">Add Projects</a>
-            <a class="btn btn-info" href="">create profile</a>
+            <a class="nav-link btn btn btn-info" href=""><i class="fa fa-fw fa-user"></i></<a>&nbsp;&nbsp;
+            <a class="btn btn-info" href="">neighbourhood</a>
+            <a class="btn btn-info" href="">location</a>
+            <a class="btn btn-info" href="">profile</a>
           </li>
           
         </ul>
