@@ -14,3 +14,52 @@ def register(request):
     else:
         form =UserRegistrationForm()
     return render(request,'registration/registration_form.html',{'form':form}) 
+
+
+@login_required(login_url='/accounts/login/')
+def add_hood(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = hoodForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = current_user
+            post.save()
+        return redirect('hood')
+    else:
+        form = hoodForm()
+    return render(request, 'newhood.html.html',{"form": form})
+@login_required(login_url='/accounts/login/')
+def add_business(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = businessForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = current_user
+            post.save()
+        return redirect('hood')
+    else:
+        form = businessForm()
+    return render(request, 'newbusiness.html.html',{"form": form})
+
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    current_user = request.user
+    id = current_user.id
+    #project = Project.filter_by_user_id(id)
+    return render(request, "profile/profile.html")
+
+@login_required(login_url='/accounts/login/')
+def add_profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = profileForm(request.POST, request.FILES)
+        if form.is_valid():
+            myprofile = form.save(commit=False)
+            myprofile.username = current_user
+            myprofile.save()
+            return redirect('profile')
+    else:
+        form = profileForm()
+    return render(request, 'profile/profile-up.html', {"form": form})

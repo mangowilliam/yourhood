@@ -15,7 +15,11 @@ class hoodForm(forms.ModelForm):
     class Meta:
         model = Hood
         exclude = ['admin']
-        
+class businessForm(forms.ModelForm):
+    class Meta:
+        model = Business
+        exclude = ['user']
+
 class userForm(forms.ModelForm):
     email =forms.EmailField()
     class Meta:
