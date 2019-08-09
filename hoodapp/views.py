@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from . forms import UserRegistrationForm,userForm,hoodForm,businessForm,profileForm
+from . forms import UserRegistrationForm,userForm,hoodForm,businessForm,profileForm,postForm
 from django.contrib.auth.decorators import login_required
 import datetime as dt
 # Create your views here.
