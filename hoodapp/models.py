@@ -14,15 +14,15 @@ class Hood(models.Model):
     
 class Business(models.Model):
     name = models.CharField(max_length=150)
-    user = models.ForeignKey(User, null=True, blank=True )
-    hood = models.ForeignKey(Hood, null=True, blank=True)
+    user = models.ForeignKey(User)
+    hood = models.ForeignKey(Hood)
     email = models.EmailField()
 
 class User(models.Model):
     name = models.CharField(max_length=150)
     email = models.EmailField()
-    id = models.IntegerField(primary_key=True)
-    hood = models.ForeignKey(User, null=True, blank=True)
+    id = models.ForeignKey(User, primary_key=True uni)
+    hood = models.ForeignKey(Hood, null=True, blank=True)
     
     def __str__(self):
             return self.name

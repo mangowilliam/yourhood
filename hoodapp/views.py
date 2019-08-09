@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
-from . forms import UserRegistrationForm
+from . forms import UserRegistrationForm,userForm,hoodForm,businessForm,profileForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def hood(request):
@@ -28,7 +29,7 @@ def add_hood(request):
         return redirect('hood')
     else:
         form = hoodForm()
-    return render(request, 'newhood.html.html',{"form": form})
+    return render(request, 'newhood.html',{"form": form})
 @login_required(login_url='/accounts/login/')
 def add_business(request):
     current_user = request.user
@@ -41,7 +42,7 @@ def add_business(request):
         return redirect('hood')
     else:
         form = businessForm()
-    return render(request, 'newbusiness.html.html',{"form": form})
+    return render(request, 'newbusiness.html',{"form": form})
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
@@ -71,5 +72,5 @@ def user_update(request):
             form.save()
             return redirect('profile')
     else:
-        form = userserForm(instance=request.user)
+        form = userForm(instance=request.user)
     return render(request, "profile/user-up.html", {"form": form})

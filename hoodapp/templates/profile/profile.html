@@ -5,7 +5,12 @@
 <div class="container">
 
     <div class="row-md-12 "">
-       
+        <img class="gallery-image" alt=""  width=30 height=30 src='{{user.profile.image.url}}'>
+        <h2 class='account-heading'>{{user.username}}</h2>
+        <p class='text-secondary'>{{user.bio}}</p>
+        <p class='text-secondary'>{{user.email}}</p>
+        <a href="{%url 'user-update'%}">Update your details</a><br>
+        <a href="{%url 'details'%}">profile add</a>
       
     </div>
     <hr>

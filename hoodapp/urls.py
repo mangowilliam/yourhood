@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^nhood',views.add_hood, name = "nhood"),
     url(r'profile',views.profile,name= 'profile'),
     url(r'userupdate',views.user_update,name= 'user-update'),
-    url(r'addprofile',views.add_profile,name= 'addprofile'),
+    url(r'details',views.add_profile,name= 'details'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

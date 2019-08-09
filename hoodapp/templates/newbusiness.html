@@ -18,7 +18,7 @@
 <body>
     {% include "navbar.html" %}
   <div class='container'>
-    <form action="{%url 'addproject'%}" method="post" enctype="multipart/form-data">
+    <form action="{%url 'business'%}" method="post" enctype="multipart/form-data">
       {%csrf_token%}
 
       {% bootstrap_form form%}
