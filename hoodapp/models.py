@@ -21,7 +21,7 @@ class Business(models.Model):
 class User(models.Model):
     name = models.CharField(max_length=150)
     email = models.EmailField()
-    id = models.ForeignKey(User, primary_key=True uni)
+    user_id = models.ForeignKey(User)
     hood = models.ForeignKey(Hood, null=True, blank=True)
     
     def __str__(self):
