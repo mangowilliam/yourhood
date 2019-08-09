@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Hood,Profile,Business
+from .models import Hood,Profile,Business,Post
 
 class UserRegistrationForm(UserCreationForm):
     email =forms.EmailField()
@@ -14,11 +14,15 @@ class UserRegistrationForm(UserCreationForm):
 class hoodForm(forms.ModelForm):
     class Meta:
         model = Hood
-        exclude = ['admin']
+        exclude = ['pub_date']
+class postForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        exclude = ['pub_date']
 class businessForm(forms.ModelForm):
     class Meta:
         model = Business
-        exclude = ['user']
+        exclude = ['pub_date']
 
 class userForm(forms.ModelForm):
     email =forms.EmailField()
@@ -29,4 +33,4 @@ class userForm(forms.ModelForm):
 class profileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = ['username']
+        exclude = ['username',]
