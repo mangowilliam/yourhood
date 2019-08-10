@@ -5,24 +5,25 @@
 <div class="container">
 
     <div class="row-md-12 "">
-        <img class="gallery-image" alt=""  width=30 height=30 src='{{user.profile.image.url}}'>
+        <img class=" gallery-image" alt="" width=30 height=30 src='{{user.profile.image.url}}'>
         <h2 class='account-heading'>{{user.username}}</h2>
         <p class='text-secondary'>{{user.bio}}</p>
         <p class='text-secondary'>{{user.email}}</p>
         <a href="{%url 'user-update'%}">Update your details</a><br>
         <a href="{%url 'details'%}">profile add</a>
-      
+
     </div>
     <hr>
-    {% for project in project %}
-    <div class="row-md-12">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-            <div class="card "> 
 
-            </div>
-           
-        </div>
+    <div class="row-md-12">
+        {% for posts in posts%}
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-info"">{{posts.title}}</li>
+                        <li class=" list-group-item">{{posts.description}}</li>
+            <li class="list-group-item">{{posts.pub_date}}</li>
+        </ul>
+        {%endfor%}
     </div>
-    {% endfor %}
+
 </div>
 {% endblock %}

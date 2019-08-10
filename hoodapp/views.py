@@ -2,9 +2,12 @@ from django.shortcuts import render,redirect
 from . forms import UserRegistrationForm,userForm,hoodForm,businessForm,profileForm,postForm
 from django.contrib.auth.decorators import login_required
 import datetime as dt
+from .models import Hood,Business,Post,Profile
 # Create your views here.
 def hood(request):
-    return render(request, "hood.html")
+   
+    hoods = Hood.get_hoods()
+    return render(request, "hood.html",{"hoods":hoods})
     
 def register(request):
     if request.method == "POST":
@@ -61,8 +64,9 @@ def add_business(request):
 def profile(request):
     current_user = request.user
     id = current_user.id
+    posts = Post.get_posts()
     #project = Project.filter_by_user_id(id)
-    return render(request, "profile/profile.html")
+    return render(request, "profile/profile.html",{"posts":posts})
 
 @login_required(login_url='/accounts/login/')
 def add_profile(request):

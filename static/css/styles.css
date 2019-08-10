@@ -2,13 +2,11 @@ body{
     background-color: #9c4dcc;
   }
   .head{
-    background-image: url("east.jpg");
+    background-image: url("sun.jpeg");
     height: 200px;
     background-repeat: no-repeat;
     text-align: center;
     background-size: 100% auto;
     width: 100%;
+    color: #fff;
   }
- .container{
-
- }
