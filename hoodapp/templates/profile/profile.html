@@ -5,25 +5,37 @@
 <div class="container">
 
     <div class="row-md-12 "">
+        <div class = " col-md-6">
         <img class=" gallery-image" alt="" width=30 height=30 src='{{user.profile.image.url}}'>
         <h2 class='account-heading'>{{user.username}}</h2>
         <p class='text-secondary'>{{user.bio}}</p>
         <p class='text-secondary'>{{user.email}}</p>
-        <a href="{%url 'user-update'%}">Update your details</a><br>
-        <a href="{%url 'details'%}">profile add</a>
-
     </div>
     <hr>
+    <h2 class='account-heading'>neighourhood: {{user.profile.hood}}</h2>
+    <a class="btn btn-info" href="{%url 'user-update'%}">Update your details</a><br>
+    <a href="{%url 'details'%}">profile add</a>
 
-    <div class="row-md-12">
-        {% for posts in posts%}
-        <ul class="list-group">
-            <li class="list-group-item list-group-item-info"">{{posts.title}}</li>
-                        <li class=" list-group-item">{{posts.description}}</li>
-            <li class="list-group-item">{{posts.pub_date}}</li>
-        </ul>
-        {%endfor%}
+</div>
+<hr>
+<h2>Available businesses</h2>
+{% for business in business%}
+<div class="row-md-12">
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+
+        <div class="card bg-primary">
+            <h4 class="card-title">{{business.name}}</h4>
+            <img class="card-img-top" src="{{ business.image.url }}" height="250px" width="350px" alt="Card image cap">
+            <div class="card-img-overlay">
+                <p class="card-text"><i class="far fa-clock pr-2"></i>{{business.pub_date}}</p>
+
+            </div>
+        </div>
+
+
     </div>
 
 </div>
+{%endfor%}
 {% endblock %}

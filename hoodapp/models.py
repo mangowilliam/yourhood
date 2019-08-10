@@ -61,7 +61,12 @@ class Business(models.Model):
     
     def delete_business(self):
         self.delete()    
-
+    
+    @classmethod
+    def filter_by_hood(cls,hood_name):
+        business = Business.objects.filter(hood=hood_name)
+        return business
+    
 class Post(models.Model):
     title = models.CharField(max_length = 20)
     description = models.CharField(max_length = 300)
@@ -83,3 +88,4 @@ class Post(models.Model):
     def get_posts(cls):
         posts = cls.objects.all()
         return posts
+    
