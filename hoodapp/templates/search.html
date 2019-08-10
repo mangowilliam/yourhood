@@ -1,0 +1,39 @@
+  {%extends 'base.html'%} {% load bootstrap3 %}
+  {%load crispy_forms_tags%}
+  {% block content %}
+  <div class="container">
+
+      <div class="row">
+          {% if businesses%}
+          <h2>Found {{ businesses|length }} business(s) of searched hood; {{message}}</h2>
+          {% else %}
+          <h2> Found 0 businesses for the searched hood, {{message}}</h2>
+          {% endif %}
+
+      </div>
+
+      <div class="row">
+
+          {% if businesses %}
+          {% for businesses in businesses %}
+
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+
+              <div class="card bg-primary">
+                  <h4 class="card-title">{{businesses.name}}</h4>
+                  <img class="card-img-top" src="{{ businesses.image.url }}" height="250px" width="350px"
+                      alt="Card image cap">
+                  <div class="card-img-overlay">
+                      <p class="card-text"><i class="far fa-clock pr-2"></i>{{businesses.pub_date}}</p>
+                  </div>
+              </div>
+
+
+          </div>
+
+          {% endfor %}
+          {% endif %}
+      </div>
+  </div>
+
+  {% endblock %}

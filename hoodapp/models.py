@@ -66,7 +66,10 @@ class Business(models.Model):
     def filter_by_hood(cls,hood_name):
         business = Business.objects.filter(hood=hood_name)
         return business
-    
+    @classmethod
+    def search_business(cls, names):
+        business = cls.objects.filter(hood__name__icontains=names)
+        return business
 class Post(models.Model):
     title = models.CharField(max_length = 20)
     description = models.CharField(max_length = 300)

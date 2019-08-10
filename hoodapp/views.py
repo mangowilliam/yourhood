@@ -100,3 +100,16 @@ def hood_update(request):
         'p_form':p_form,
     }
     return render(request,'profile/hoodup.html',twoforms)
+def search_business(request):
+    
+    if 'business' in request.GET and request.GET["business"]:
+        names = request.GET.get("business")
+        hoodbusinesses = Business.search_business(names)
+        print(hoodbusinesses)
+        message = f"{names}"
+
+        return render(request, 'search.html', {"message": message, "businesses": hoodbusinesses})
+
+    else:
+        message = "You haven't searched for any hood"
+        return render(request, 'search.html', {"message": message})
