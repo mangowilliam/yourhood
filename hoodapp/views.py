@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from . forms import UserRegistrationForm,userForm,hoodForm,businessForm,profileForm,postForm
+from . forms import UserRegistrationForm,userForm,hoodForm,businessForm,profileForm,postForm,hoodForm
 from django.contrib.auth.decorators import login_required
 import datetime as dt
 from .models import Hood,Business,Post,Profile
@@ -82,13 +82,21 @@ def add_profile(request):
     else:
         form = profileForm()
     return render(request, 'profile/profile-up.html', {"form": form})
+
 @login_required(login_url='/accounts/login/')
-def user_update(request):
-    if request.method == 'POST':
-        form = userForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()
+def hood_update(request):
+    if request.method == "POST":
+        u_form = userForm(request.POST, instance=request.user)
+        p_form = hoodForm(request.POST,request.FILES,  instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
             return redirect('profile')
     else:
-        form = userForm(instance=request.user)
-    return render(request, "profile/user-up.html", {"form": form})
+        u_form = userForm(instance=request.user)
+        p_form = hoodForm(instance=request.user.profile.hood)
+    twoforms ={
+        'u_form':u_form,
+        'p_form':p_form,
+    }
+    return render(request,'profile/hoodup.html',twoforms)

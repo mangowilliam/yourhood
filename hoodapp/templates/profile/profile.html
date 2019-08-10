@@ -6,7 +6,7 @@
 
     <div class="row-md-12 ">
         <div class=" col-md-6">
-            <img class=" gallery-image" alt="" width=30 height=30 src='{{user.profile.image.url}}'>
+            <img class="img-circle" alt="image" width=50 height=50  src='{{user.profile.image.url}}'>
             <h2 class='account-heading'>{{user.username}}</h2>
             <p class='text-secondary'>{{user.bio}}</p>
             <p class='text-secondary'>{{user.email}}</p>
@@ -14,8 +14,8 @@
     </div>
     <hr>
     <h2 class='account-heading'>neighourhood: {{user.profile.hood}}</h2>
-    <a class="btn btn-info" href="{%url 'user-update'%}">Update your details</a><br>
-    <a href="{%url 'details'%}">profile add</a>
+    <a class="btn btn-info" href="{%url 'update'%}">change neighbourhood</a><br><br>
+  
     <hr>
     <h2>Available businesses</h2>
     {% for business in business%}
