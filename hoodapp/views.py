@@ -66,7 +66,8 @@ def profile(request):
     id = current_user.id
     hood = current_user.profile.hood
     business = Business.filter_by_hood(hood)
-    return render(request, "profile/profile.html",{"business":business})
+    posts = Post.filter_by_hood(hood)
+    return render(request, "profile/profile.html",{"business":business, "posts":posts})
 
 @login_required(login_url='/accounts/login/')
 def add_profile(request):

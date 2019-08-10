@@ -70,7 +70,9 @@ class Business(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length = 20)
     description = models.CharField(max_length = 300)
+    hood = models.ForeignKey(Hood)
     pub_date = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User)
     
     def __str__(self):
         return self.title   
@@ -85,7 +87,6 @@ class Post(models.Model):
         self.delete()
     
     @classmethod
-    def get_posts(cls):
-        posts = cls.objects.all()
+    def filter_by_hood(cls,hood_name):
+        posts = Post.objects.filter(hood=hood_name)
         return posts
-    
