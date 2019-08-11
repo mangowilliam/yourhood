@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 import datetime as dt
 from django.http  import HttpResponse,Http404
 from .models import Hood,Business,Post,Profile
+from .email import send_welcome_email
 # Create your views here.
 def hood(request):
    
@@ -15,6 +16,9 @@ def register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
+            username = form.cleaned_data.get('username') 
+            email = form.cleaned_data['email']
+            send_welcome_email(username,email)
             return redirect('details')
     else:
         form =UserRegistrationForm()
