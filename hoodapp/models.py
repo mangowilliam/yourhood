@@ -24,6 +24,19 @@ class Hood(models.Model):
         self.delete()
         
     @classmethod
+    def find_neighbourhood(cls,id):
+        neighbourhood = Hood.objects.filter(hood=id)
+        return neighbourhood   
+     
+    @classmethod
+    def update_hood(id):
+        Hood.objects.filter(id = id).update()
+
+    @classmethod
+    def update_occupants(count):
+        Hood.objects.filter(count=count).update()
+    
+    @classmethod
     def get_hoods(cls):
         hoods = cls.objects.all()
         return hoods
@@ -67,9 +80,18 @@ class Business(models.Model):
         business = Business.objects.filter(hood=hood_name)
         return business
     @classmethod
+    def find_business(cls,id):
+        business = Business.objects.filter(id=id)
+        return business
+    @classmethod
     def search_business(cls, names):
         business = cls.objects.filter(hood__name__icontains=names)
         return business
+    
+    @classmethod
+    def update_business(id):
+        Business.objects.filter(id=id).update()
+        
 class Post(models.Model):
     title = models.CharField(max_length = 20)
     description = models.CharField(max_length = 300)

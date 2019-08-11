@@ -16,6 +16,9 @@ def register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
+           # username = form.cleaned_data.get('username') 
+           # email = form.cleaned_data['email']
+           # send_welcome_email(username,email)
             return redirect('details')
     else:
         form =UserRegistrationForm()
