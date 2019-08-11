@@ -1,0 +1,2 @@
+Hello {{name}}
+Welcome to the city. You will never think of the other one again, enjoy.
