@@ -38,6 +38,7 @@ def add_hood(request):
     else:
         form = newHoodForm()
     return render(request, 'newhood.html',{"form": form})
+
 @login_required(login_url='/accounts/login/')
 def add_post(request):
     current_user = request.user
@@ -51,6 +52,7 @@ def add_post(request):
     else:
         form = postForm()
     return render(request, 'newpost.html',{"form": form})
+
 @login_required(login_url='/accounts/login/')
 def add_business(request):
     current_user = request.user

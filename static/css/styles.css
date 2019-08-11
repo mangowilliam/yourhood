@@ -1,5 +1,6 @@
 body{
     background-color: #9c4dcc;
+    text-align: center;
   }
   .head{
     background-image: url("sun2.png");
@@ -10,7 +11,21 @@ body{
     width: 100%;
     color: #fff;
   }
-  #crispy input{
-    width:100%;
-    height: 25px;
+
+  @media (min-width: 768px) {
+    .container {
+      width: 750px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
   }
