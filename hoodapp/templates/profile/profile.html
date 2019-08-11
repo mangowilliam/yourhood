@@ -12,11 +12,12 @@
             <p class='text-secondary'>{{user.email}}</p>
         </div>
     </div>
-    <hr>
+  
     <h2 class='account-heading'>neighourhood: {{user.profile.hood}}</h2>
     <a class="btn btn-info" href="{%url 'update'%}">change neighbourhood</a><br><br>
-  
-    <hr>
+</div>
+<div class = "container">
+  <hr>
     <h2>Available businesses</h2>
     {% for business in business%}
     <div class="row-md-12">

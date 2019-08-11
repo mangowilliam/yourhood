@@ -11,20 +11,20 @@
 <body>
 
 
-  <nav class="navbar navbar-default" role='navigation' style="background-color:#6a1b9a;" >
+  <nav class="navbar navbar-default" role='navigation' style="background-color:#6a1b9a;">
 
     <div class='container'>
       <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target='.navbar-collapse'>
-            <span class=sr-only>Toggle navigation</span>
-            <span class=icon-bar></span>
-            <span class=icon-bar></span>
-            <span class=icon-bar></span>
-          </button>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target='.navbar-collapse'>
+          <span class=sr-only>Toggle navigation</span>
+          <span class=icon-bar></span>
+          <span class=icon-bar></span>
+          <span class=icon-bar></span>
+        </button>
 
-          <a <span class="btn btn-info" href="{%url 'hood'%}">HOOD</span></a>
+        <a <span class="btn btn-info" href="{%url 'hood'%}">HOOD</span></a>
       </div>
-      
+
       <div class='navbar-collapse collapse '>
         <div class="col-sm-4 col-md-4 " id="search">
           <form class="navbar-form" role="search" action="{%url 'find'%}">
@@ -37,34 +37,38 @@
             </div>
 
           </form>
-         
+
         </div>
         <div class="col-sm-6 col-md-6">
           {% if user.is_authenticated %}
-            <ul style="list-style: none;">
-                  <li>
-                    <a class="btn btn-info" href="/accounts/password/change">Change Password</a>
-                    <a class="btn btn-info"href="/logout">Logout</a>
-                  </li>
-            
-            </ul>
-            {% else %}
-            <li style="list-style: none;">
-              <a class="btn btn-info" href="/accounts/login">Login</a> &nbsp;&nbsp;
-              <a class="btn btn-info" href="{%url 'signup'%}">Sign up</a>
+          <ul style="list-style: none;">
+            <li>
+              <a class="btn btn-info" href="/accounts/password/change">Change Password</a>
+              <a class="btn btn-info" href="/logout">Logout</a>
             </li>
-            {% endif %}
-          </div>
+
+          </ul>
+          {% else %}
+          <li style="list-style: none;">
+            <a class="btn btn-info" href="/accounts/login">Login</a> &nbsp;&nbsp;
+            <a class="btn btn-info" href="{%url 'signup'%}">Sign up</a>
+          </li>
+          {% endif %}
+        </div>
 
         <ul class="navbar-right">
           <li style="list-style: none;">
-            <img href="profile"class="gallery-image" alt=""  width=30 height=30 src='{{user.profile.image.url}}'>
-            <a class="nav-link btn btn btn-info" href="profile"><i class="fa fa-fw fa-user"></i></<a>&nbsp;&nbsp;
+            <a class="nav-link btn btn btn-info" href="profile">
+              <figure>
+                <img class="img-circle" alt="no image" width=30 height=30 src='{{user.profile.image.url}}'>
+                <figcaption>{{user.username}}</figcaption>
+              </figure>
+            </a>
             <a class="btn btn-info" href="nhood">neighbourhood</a>
             <a class="btn btn-info" href="business">Business</a>
-            <a class = "btn btn-info" href="post">Post</a>
+            <a class="btn btn-info" href="post">Post</a>
           </li>
-          
+
         </ul>
 
       </div>
