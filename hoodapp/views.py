@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
-from . forms import UserRegistrationForm,userForm,hoodForm,businessForm,profileForm,postForm,hoodForm
+from . forms import UserRegistrationForm,userForm,newHoodForm,businessForm,profileForm,postForm,hoodForm
 from django.contrib.auth.decorators import login_required
 import datetime as dt
+from django.http  import HttpResponse,Http404
 from .models import Hood,Business,Post,Profile
 # Create your views here.
 def hood(request):
@@ -14,7 +15,7 @@ def register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/accounts/login')
+            return redirect('details')
     else:
         form =UserRegistrationForm()
     return render(request,'registration/registration_form.html',{'form':form}) 
@@ -24,14 +25,14 @@ def register(request):
 def add_hood(request):
     current_user = request.user
     if request.method == 'POST':
-        form = hoodForm(request.POST, request.FILES)
+        form = newHoodForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.user = current_user
             post.save()
         return redirect('hood')
     else:
-        form = hoodForm()
+        form = newHoodForm()
     return render(request, 'newhood.html',{"form": form})
 @login_required(login_url='/accounts/login/')
 def add_post(request):
@@ -42,7 +43,7 @@ def add_post(request):
             post = form.save(commit=False)
             post.user = current_user
             post.save()
-        return redirect('hood')
+        return redirect('hood.html')
     else:
         form = postForm()
     return render(request, 'newpost.html',{"form": form})
@@ -55,7 +56,7 @@ def add_business(request):
             post = form.save(commit=False)
             post.user = current_user
             post.save()
-        return redirect('hood')
+        return redirect('hood.html')
     else:
         form = businessForm()
     return render(request, 'newbusiness.html',{"form": form})
@@ -69,16 +70,19 @@ def profile(request):
     posts = Post.filter_by_hood(hood)
     return render(request, "profile/profile.html",{"business":business, "posts":posts})
 
-@login_required(login_url='/accounts/login/')
+
 def add_profile(request):
-    current_user = request.user
+    try:
+        current_user = request.user
+    except DoesNotExist:
+        raise Http404()
     if request.method == 'POST':
         form = profileForm(request.POST, request.FILES)
         if form.is_valid():
             myprofile = form.save(commit=False)
             myprofile.username = current_user
             myprofile.save()
-            return redirect('profile')
+            return redirect('/accounts/login')
     else:
         form = profileForm()
     return render(request, 'profile/profile-up.html', {"form": form})
@@ -100,6 +104,7 @@ def hood_update(request):
         'p_form':p_form,
     }
     return render(request,'profile/hoodup.html',twoforms)
+@login_required(login_url='/accounts/login/')
 def search_business(request):
     
     if 'business' in request.GET and request.GET["business"]:

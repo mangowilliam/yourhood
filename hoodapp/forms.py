@@ -11,7 +11,7 @@ class UserRegistrationForm(UserCreationForm):
         fields = ['username','email','password1','password2']
 
 
-class hoodForm(forms.ModelForm):
+class newHoodForm(forms.ModelForm):
     class Meta:
         model = Hood
         exclude = ['pub_date']
