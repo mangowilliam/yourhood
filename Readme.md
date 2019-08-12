@@ -69,7 +69,7 @@ Users would like to:
 
  * $ python3.6 manage.py runserver
 
-#Testing the Application
+# Testing the Application
 
 * To run the tests for the class files:
 
@@ -81,7 +81,7 @@ Users would like to:
 * Django and postgresql
 * crispy forms
 
-#deployment
+# deployment
 
 * install all requrements
 * create the env file to hide your credentials from users by gitignoring
