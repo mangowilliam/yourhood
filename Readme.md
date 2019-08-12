@@ -27,14 +27,14 @@ Users would like to:
 
 |Behaviour	          |          Input	        |Output                       |
 |---------------------|-------------------------|-----------------------------|
-|view neighourhoods   |request the site via link|web page with neighbourhoods |
+|view neighorhoods    |request the site via link|web page with neighborhoods  |
 |login and join hood  |signup & fill profileform| user profile                |
-|To search businesses |neighbourhood name       |usinessess and details       |
-|create neighbourhood |click on neighbourhood   |new project                  |
+|To search businesses |neighborhood name        |businessess and details      |
+|create neighborhood  |click on neighborhood    |new neighborhood             |
 |create business      |click on business        |new profile                  |
-|create business      |click on business        |your profile/projects        |
-|view hood details    |click on pprofile picture|posts,info and businesses    |
-|change neighbourhood |click channge hood in pro|new neighourhood             |
+|create a post        |click on post            |new post                     |
+|view hood details    |click on profile picture |posts,info and businesses    |
+|change neighborhood  |click channge hood in pro|new neighourhood             |
 
 
 ## SetUp / Installation Requirements
@@ -80,6 +80,23 @@ Users would like to:
 * Python3.6
 * Django and postgresql
 * crispy forms
+
+# requrements.txt
+
+* config==0.4.2
+* confusable-homoglyphs==3.2.0
+* dj-database-url==0.5.0
+* Django==1.11
+* django-bootstrap3==11.1.0
+* django-crispy-forms==1.7.2
+* django-heroku==0.3.1
+* django-registration==2.4.1
+* gunicorn==19.9.0
+* Pillow==6.1.0
+* psycopg2==2.8.3
+* python-decouple==3.1
+* pytz==2019.2
+* whitenoise==4.1.3
 
 # deployment
 
