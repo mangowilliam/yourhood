@@ -36,6 +36,7 @@ Users would like to:
 |view hood details    |click on pprofile picture|posts,info and businesses    |
 |change neighbourhood |click channge hood in pro|new neighourhood             |
 
+
 ## SetUp / Installation Requirements
 
 * Prerequisites
@@ -43,51 +44,51 @@ Users would like to:
 * pip
 * virtualenv
 * Requirements.txt
-*bootstrap3
+* bootstrap3
 
-#Cloning
+# Cloning
 
 # In your terminal:
 
-  $ git clone https://github.com/mangowilliam/yourhood
-  $ cd yourhood
+ * $ git clone https://github.com/mangowilliam/yourhood
+ * $ cd yourhood
 
 # Running the Application
 
-* Creating the virtual environment
+# Creating the virtual environment
 
-  $ python3.6 -m venv --without-pip virtual
-  $ source virtual/bin/activate
-  $ curl https://bootstrap.pypa.io/get-pip.py | python
+ * $ python3.6 -m venv --without-pip virtual
+ * $ source virtual/bin/activate
+ * $ curl https://bootstrap.pypa.io/get-pip.py | python
 
-* Installing Django and other Modules
+# Installing Django and other Modules
 
-  $ see Requirements.txt
+ * $ see Requirements.txt
 
-* To run the application, in your terminal:
+# To run the application, in your terminal:
 
-  $ python3.6 manage.py runserver
+ * $ python3.6 manage.py runserver
 
 #Testing the Application
 
-To run the tests for the class files:
+* To run the tests for the class files:
 
   $ python3.6 manage.py test 
 
 # Technologies Used
 
-*Python3.6
-*Django and postgresql
-*crispy forms
+* Python3.6
+* Django and postgresql
+* crispy forms
 
 #deployment
 
-*install all requrements
-*create the env file to hide your credentials from users by gitignoring
-*add procfile and runtime.txt file
-*login to heroku and create project
-*deploy the local master branch
-*deploy the local Database
+* install all requrements
+* create the env file to hide your credentials from users by gitignoring
+* add procfile and runtime.txt file
+* login to heroku and create project
+* deploy the local master branch
+* deploy the local Database
 
 # Support and contact details
 
