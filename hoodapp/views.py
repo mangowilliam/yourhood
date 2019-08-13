@@ -19,7 +19,7 @@ def register(request):
            # username = form.cleaned_data.get('username') 
            # email = form.cleaned_data['email']
            # send_welcome_email(username,email)
-            return redirect('accounts/login')
+            return redirect('/accounts/login')
     else:
         form =UserRegistrationForm()
     return render(request,'registration/registration_form.html',{'form':form}) 

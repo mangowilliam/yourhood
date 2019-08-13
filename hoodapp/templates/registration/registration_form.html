@@ -20,7 +20,7 @@
             {% csrf_token %}
             {% bootstrap_form form %}
             <div class="form-group">
-              <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+              <input type="submit" class="btn " value="Sign Up">
             </div>
 
             <input type="hidden" name="next" value="{{next}}">
@@ -28,7 +28,7 @@
           </form>
           <div class="panel-footer">
             <small class='text-muted'>
-              have an account?<a class='ml-2' href="/accounts/login">&nbsp;&nbsp;Login</a>
+              have an account?<a class='btn' href="/accounts/login">&nbsp;&nbsp;Login</a>
             </small>
           </div>
 

@@ -20,7 +20,7 @@
             {% bootstrap_form form%}
 
             <div class="form-group">
-              <input type="submit" class="btn btn-primary btn-sm" value="Login">
+              <input type="submit" class="btn " value="Login">
             </div>
 
             <input type="hidden" name="next" value="{{next}}">
@@ -28,7 +28,7 @@
           </form>
           <div class="panel-footer">
             <small class='text-muted'>
-              need an account?<a class='ml-2' href="{%url 'signup'%}">&nbsp;&nbsp;Signup</a>
+              need an account?<a class='btn' href="{%url 'signup'%}">&nbsp;&nbsp;Signup</a>
             </small>
           </div>
 
