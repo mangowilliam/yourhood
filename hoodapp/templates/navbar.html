@@ -11,7 +11,7 @@
 <body>
 
 
-  <nav class="navbar navbar-default" role='navigation' style="background-color:#6a1b9a;">
+  <nav class="navbar navbar-default" role='navigation' style="background-color:#84ffff;">
 
     <div class='container'>
       <div class="navbar-header">
@@ -22,7 +22,7 @@
           <span class=icon-bar></span>
         </button>
 
-        <a <span class="btn btn-info" href="{%url 'hood'%}">HOOD</span></a>
+        <a <span class="btn " href="{%url 'hood'%}">HOOD</span></a>
       </div>
 
       <div class='navbar-collapse collapse '>
@@ -32,7 +32,7 @@
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search by hood name" name="business">
               <div class="input-group-btn">
-                <button class="btn btn-info" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                <button class="btn " type="submit"><i class="glyphicon glyphicon-search"></i></button>
               </div>
             </div>
 
@@ -43,30 +43,30 @@
           {% if user.is_authenticated %}
           <ul style="list-style: none;">
             <li>
-              <a class="btn btn-info" href="/accounts/password/change">Change Password</a>
-              <a class="btn btn-info" href="/logout">Logout</a>
+              <a class="btn" href="/accounts/password/change">Change Password</a>
+              <a class="btn " href="/logout">Logout</a>
             </li>
 
           </ul>
           {% else %}
           <li style="list-style: none;">
-            <a class="btn btn-info" href="/accounts/login">Login</a> &nbsp;&nbsp;
-            <a class="btn btn-info" href="{%url 'signup'%}">Sign up</a>
+            <a class="btn " href="/accounts/login">Login</a> &nbsp;&nbsp;
+            <a class="btn " href="{%url 'signup'%}">Sign up</a>
           </li>
           {% endif %}
         </div>
 
         <ul class="navbar-right">
           <li style="list-style: none;">
-            <a class="nav-link btn btn btn-info" href="profile">
+            <a class="nav-link btn btn" href="profile">
               <figure>
                 <img class="img-circle" alt="no image" width=30 height=30 src='{{user.profile.image.url}}'>
                 <figcaption>{{user.username}}</figcaption>
               </figure>
             </a>
-            <a class="btn btn-info" href="nhood">neighborhood</a>
-            <a class="btn btn-info" href="business">Business</a>
-            <a class="btn btn-info" href="post">Post</a>
+            <a class="btn" href="nhood">neighborhood</a>
+            <a class="btn" href="business">Business</a>
+            <a class="btn " href="post">Post</a>
           </li>
 
         </ul>

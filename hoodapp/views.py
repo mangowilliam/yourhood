@@ -19,7 +19,7 @@ def register(request):
            # username = form.cleaned_data.get('username') 
            # email = form.cleaned_data['email']
            # send_welcome_email(username,email)
-            return redirect('details')
+            return redirect('accounts/login')
     else:
         form =UserRegistrationForm()
     return render(request,'registration/registration_form.html',{'form':form}) 
@@ -76,7 +76,7 @@ def profile(request):
     posts = Post.filter_by_hood(hood)
     return render(request, "profile/profile.html",{"business":business, "posts":posts})
 
-
+@login_required(login_url='/accounts/login/')
 def add_profile(request):
     try:
         current_user = request.user
@@ -88,7 +88,7 @@ def add_profile(request):
             myprofile = form.save(commit=False)
             myprofile.username = current_user
             myprofile.save()
-            return redirect('/accounts/login')
+            return redirect('details')
     else:
         form = profileForm()
     return render(request, 'profile/profile-up.html', {"form": form})

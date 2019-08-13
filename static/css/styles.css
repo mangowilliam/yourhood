@@ -1,7 +1,15 @@
 body{
-    background-color: #9c4dcc;
-    text-align: center;
-  }
+  background-color: #baffff;
+  text-align: center;
+}
+form {
+  background-color: #4bcbcc;
+
+}
+.btn{
+  color:  #4bcbcc;
+  background-color: #84ffff
+}
   .head{
     background-image: url("sun2.png");
     height: 300px;
